@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Appointments</title>
+</head>
+
+<body>
+    <h1>Appointments</h1>
+    <a href="{% url 'appointment_create' %}">Create New Appointment</a>
+    <ul>
+        {% for appt in appointments %}
+        <li>
+            <strong>{{ appt.title }}</strong> ({{ appt.start_time }} - {{ appt.end_time }})
+            <a href="{% url 'appointment_edit' appt.pk %}">Edit</a>
+            <a href="{% url 'appointment_delete' appt.pk %}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
